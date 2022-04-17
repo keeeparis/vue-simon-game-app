@@ -21,6 +21,7 @@
         this.message = 'Время слушать...'
         this.round += 1
         this.numberOfClicks = -1
+        this.active = true
         this.addToSequence(this.randomNumber())
         this.animate()
       },
