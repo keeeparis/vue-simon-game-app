@@ -1,9 +1,4 @@
 <script>
-  import sound1 from './assets/sounds/1.mp3'
-  import sound2 from './assets/sounds/2.mp3'
-  import sound3 from './assets/sounds/3.mp3'
-  import sound4 from './assets/sounds/4.mp3'
-
   export default {
     name: 'App',
     data() {
@@ -13,17 +8,8 @@
         numberOfClicks: -1,
         level: '1500',
         active: true,
-        message: 'Попробуйте свои силы в Simon Game!',
-        sounds: []
+        message: 'Попробуйте свои силы в Simon Game!'
       }
-    },
-    created() {
-      this.sounds = [
-        new Audio(sound1), 
-        new Audio(sound2), 
-        new Audio(sound3), 
-        new Audio(sound4)
-      ]
     },
     methods: {
       startGame() {
@@ -69,7 +55,7 @@
         }, 250)
       },
       playSound(tile) {
-        this.sounds[tile - 1].play()
+        (new Audio(`./assets/sounds/${tile}.ogg`)).play()
       },
       registerClick(tile) {
         if (this.active) return
