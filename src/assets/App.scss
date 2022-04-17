@@ -9,7 +9,7 @@
     .Circle {
         margin-right: 0;
     }
-  }
+}
 
 .Red, .Blue, .Yellow, .Green {
     position: absolute;
@@ -58,10 +58,19 @@
     clip: rect(150px 300px 300px 150px);
 }
 
+.Start-button {
+    border: none;
+    appearance: none;
+    @include button-outer();
+    @include button-inner();
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
 .Data {
     display: flex;
     flex-direction: column;
-    // flex-basis: 300px;
     width: 300px;
 }
 
@@ -89,3 +98,16 @@
     font-size: 1.2em;
     font-weight: 600;
 }
+
+.Github {
+    position: absolute;
+    margin-top: 2rem;
+    top: 0;
+    right: 0;
+    @include button-outer();
+
+    a {
+        @include button-inner();
+    }
+}
+

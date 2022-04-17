@@ -72,3 +72,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@mixin button-outer {
+  background-color: rgb(23, 3, 59);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 20px 5px #0000003b;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(23, 3, 59, 0.768);
+  }
+}
+
+@mixin button-inner {
+  text-decoration: none;
+  padding: 10px 25px;
+  color: white;
+  font-weight: lighter;
+  letter-spacing: 0.03em;
+  font-family: corano;
+}

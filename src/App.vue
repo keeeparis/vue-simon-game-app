@@ -91,7 +91,7 @@
     <div class="Data">
       <div>
         <h1>Раунд: {{ round }}</h1>
-        <button @click="startGame()">Start</button>
+        <button @click="startGame()" class="Start-button">Start</button>
       </div>
       <div class="Options">
         <h2>Уровни сложности</h2>
@@ -110,11 +110,16 @@
       </div>
       <div class="Message">{{ message }}</div>
     </div>
+    <div class="Github">
+      <a href="https://github.com/keeeparis/vue-simon-game-app" target="_blank">
+        Fork on Github
+      </a>
+    </div>
   </div>
 </template>
 
 <style lang='scss'>
-@import './assets/base.css';
+@import './assets/base.scss';
 @import './assets/App.scss';
 
 #app {
