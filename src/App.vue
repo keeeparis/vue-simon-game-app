@@ -17,7 +17,7 @@
         sounds: []
       }
     },
-    mounted() {
+    created() {
       this.sounds = [
         new Audio(sound1), 
         new Audio(sound2), 
@@ -30,7 +30,6 @@
         this.round = 0
         this.sequence = []
         this.startRound()
-        console.log(this.sounds)
       },
       startRound() {
         this.message = 'Время слушать...'
@@ -47,7 +46,6 @@
         setTimeout(() => {
           let i = 0
           let interval = setInterval(() => {
-            // this.lightUpAndPlaySound(this.sequence[i])
             this.lightUp(this.sequence[i])
             this.playSound(this.sequence[i])
 
@@ -70,25 +68,13 @@
           button.classList.remove('active')
         }, 250)
       },
-      lightUpAndPlaySound(tile) {
-        this.sounds[tile - 1].play()
-        // (new Audio(`./assets/sounds/${tile}.mp3`)).play()
-
-        const button = document.getElementById(tile)
-        button.classList.add('active')
-        setTimeout(() => {
-          button.classList.remove('active')
-        }, 250)
-      },
       playSound(tile) {
         this.sounds[tile - 1].play()
-        // (new Audio(`./assets/sounds/${tile}.mp3`)).play()
       },
       registerClick(tile) {
         if (this.active) return
 
         this.numberOfClicks++
-        // this.lightUpAndPlaySound(tile)
         this.lightUp(tile)
         this.playSound(tile)
 
@@ -100,7 +86,7 @@
       },
       finishGame() {
         this.active = true
-        this.message = `Уау! Вы смогли продержаться ${this.round} раундa/ов. Попробуйте еще!`
+        this.message = `Вау! Вы смогли продержаться ${this.round} раундa/ов. Попробуйте еще!`
       }
     }
   }
