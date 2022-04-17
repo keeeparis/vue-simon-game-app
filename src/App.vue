@@ -1,4 +1,9 @@
 <script>
+  import sound1 from './assets/sounds/1.mp3'
+  import sound2 from './assets/sounds/2.mp3'
+  import sound3 from './assets/sounds/3.mp3'
+  import sound4 from './assets/sounds/4.mp3'
+
   export default {
     name: 'App',
     data() {
@@ -8,14 +13,24 @@
         numberOfClicks: -1,
         level: '1500',
         active: true,
-        message: 'Попробуйте свои силы в Simon Game!'
+        message: 'Попробуйте свои силы в Simon Game!',
+        sounds: []
       }
+    },
+    mounted() {
+      this.sounds = [
+        new Audio(sound1), 
+        new Audio(sound2), 
+        new Audio(sound3), 
+        new Audio(sound4)
+      ]
     },
     methods: {
       startGame() {
         this.round = 0
         this.sequence = []
         this.startRound()
+        console.log(this.sounds)
       },
       startRound() {
         this.message = 'Время слушать...'
@@ -32,6 +47,7 @@
         setTimeout(() => {
           let i = 0
           let interval = setInterval(() => {
+            // this.lightUpAndPlaySound(this.sequence[i])
             this.lightUp(this.sequence[i])
             this.playSound(this.sequence[i])
 
@@ -54,15 +70,25 @@
           button.classList.remove('active')
         }, 250)
       },
+      lightUpAndPlaySound(tile) {
+        this.sounds[tile - 1].play()
+        // (new Audio(`./assets/sounds/${tile}.mp3`)).play()
+
+        const button = document.getElementById(tile)
+        button.classList.add('active')
+        setTimeout(() => {
+          button.classList.remove('active')
+        }, 250)
+      },
       playSound(tile) {
-        const audio = new Audio()
-        audio.src = `./assets/sounds/${tile}.mp3`
-        audio.oncanplaythrough = () => audio.play()
+        this.sounds[tile - 1].play()
+        // (new Audio(`./assets/sounds/${tile}.mp3`)).play()
       },
       registerClick(tile) {
         if (this.active) return
 
         this.numberOfClicks++
+        // this.lightUpAndPlaySound(tile)
         this.lightUp(tile)
         this.playSound(tile)
 
