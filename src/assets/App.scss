@@ -1,0 +1,84 @@
+.Circle {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-right: 40px;
+}
+
+.Red, .Blue, .Yellow, .Green {
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: 3px solid lightgray;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all .1s ease;
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.834);
+    }
+
+    &.active {
+        opacity: 1;
+    }
+}
+
+.Red {
+    top: 0;
+    right: 0;
+    background-color: red;
+    clip: rect(0 300px 150px 150px);
+}
+
+.Blue {
+    top: 0;
+    left: 0;
+    background-color: blue;
+    clip: rect(0 150px 150px 0);
+}
+
+.Yellow {
+    bottom: 0;
+    right: 0;
+    background-color: yellow;
+    clip: rect(150px 150px 300px 0);
+}
+
+.Green {
+    bottom: 0;
+    left: 0;
+    background-color: green;
+    clip: rect(150px 300px 300px 150px);
+}
+
+.Data {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 200px;
+}
+
+.Options {
+    display: flex;
+    flex-direction: column;
+}
+
+.Option {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    input {
+        margin-top: 5px;
+    }
+
+    input, label {
+        cursor: pointer;
+    }
+}
+
+.Message {
+    padding: 40px 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
