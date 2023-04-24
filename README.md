@@ -25,3 +25,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+[Hello world!](https://qazmonitor.com)
