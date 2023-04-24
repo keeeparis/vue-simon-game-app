@@ -26,4 +26,4 @@ npm run dev
 npm run build
 ```
 
-[Hello world!](https://qazmonitor.com)
+[Qazmonitor website - news about Kazakhstan!](https://qazmonitor.com)
